@@ -1,4 +1,5 @@
 import { MdOutlineMailOutline } from "react-icons/md";
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -32,10 +33,16 @@ export default function Home() {
         </section>
 
          {/* Profile Section */}
-        <section className="mt-14 flex items-center gap-14">
+        <section className="mt-14 flex items-center gap-6">
           {/* Avatar */}
-          <div className="flex-shrink-0 w-27 h-27 rounded-full bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-400 text-sm tracking-wide">Avatar</span>
+          <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden">
+            <Image
+              src="/avatar.jpg"
+              alt="PlainShed avatar"
+              width={96}
+              height={96}
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Bio */}
