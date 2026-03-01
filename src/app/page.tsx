@@ -13,28 +13,8 @@ export default function Home() {
       </header>
 
       <div className="max-w-2xl mx-auto">
-        {/* Profile Section */}
-        <section className="mt-32 flex items-center gap-14">
-          {/* Avatar */}
-          <div className="flex-shrink-0 w-36 h-36 rounded-full bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-400 text-sm tracking-wide">Avatar</span>
-          </div>
-
-          {/* Bio */}
-          <div className="text-gray-800 leading-relaxed">
-            <p className="text-base font-medium mb-1">Kengo Imai</p>
-            <p className="text-sm text-gray-600">
-              1989年生まれ。
-              <br />
-              大阪大学卒業後、公務員を経て現在の会社に入社。
-              <br />
-              2026年2月、個人開発プロジェクト「PlainShed」始動。
-            </p>
-          </div>
-        </section>
-
-        {/* Products */}
-        <section className="mt-14">
+         {/* Products */}
+        <section className="mt-24">
           <h2 className="text-sm font-medium tracking-widest text-neutral-400 uppercase mb-6">
             Products
           </h2>
@@ -53,6 +33,27 @@ export default function Home() {
           </div>
         </section>
 
+         {/* Profile Section */}
+        <section className="mt-14 flex items-center gap-14">
+          {/* Avatar */}
+          <div className="flex-shrink-0 w-27 h-27 rounded-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-400 text-sm tracking-wide">Avatar</span>
+          </div>
+
+          {/* Bio */}
+          <div className="text-gray-800 leading-relaxed">
+            <p className="text-base font-medium mb-1">Kengo Imai</p>
+            <p className="text-sm text-gray-600">
+              1989年生まれ。
+              <br />
+              大阪大学卒業後、公務員を経て民間企業に入社。
+              <br />
+              2026年2月、個人開発プロジェクト「PlainShed」始動。
+            </p>
+          </div>
+        </section>
+
+       
         {/* Footer */}
         <footer className="mt-14 text-sm text-neutral-600">
           <div className="flex flex-wrap gap-4 mb-3">
