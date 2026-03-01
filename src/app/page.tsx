@@ -51,9 +51,9 @@ export default function Home() {
              </a>
           </div>
             <p className="text-sm text-gray-600">
-              2026.3.1~
+              Since 2026.03.01
               <br />
-              No social media.
+              No social media accounts.
             </p>
           </div>
         </section>
