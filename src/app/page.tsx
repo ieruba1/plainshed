@@ -42,7 +42,7 @@ export default function Home() {
           {/* Bio */}
           <div className="text-gray-800 leading-relaxed">
            <div className="flex items-center gap-2 mb-1">
-             <p className="text-base font-medium">Kengo Imai</p>
+             <p className="text-base font-medium">PlainShed</p>
               <a
                href="mailto:ki@plainshed.com"
                aria-label="メールで連絡する"
@@ -52,11 +52,11 @@ export default function Home() {
              </a>
           </div>
             <p className="text-sm text-gray-600">
-              1989年生まれ。
+              2026年2月始動。
               <br />
-              大阪大学卒業後、公務員を経て民間企業に入社。
+              たったひとりの、静かな小屋。
               <br />
-              2026年2月、個人開発プロジェクト「PlainShed」始動。
+              SNSアカウントはありません。
             </p>
           </div>
         </section>
