@@ -8,7 +8,6 @@ export default function Home() {
         <h1 className="text-4xl font-normal tracking-tight text-gray-900">
           PlainShed
         </h1>
-        <p className="mt-1 text-sm text-gray-500">Tech as Play.</p>
       </header>
 
       <div className="max-w-2xl mx-auto">
@@ -26,7 +25,7 @@ export default function Home() {
             >
               <div className="font-semibold text-base text-gray-800">Lifemint College</div>
               <div className="mt-1 text-sm text-neutral-600">
-                「習慣で単位を取得できる」大学をテーマにした習慣管理サービス。
+                「習慣で単位を取得する」大学をイメージした習慣管理サービス。
               </div>
             </a>
           </div>
