@@ -51,11 +51,9 @@ export default function Home() {
              </a>
           </div>
             <p className="text-sm text-gray-600">
-              2026年2月始動。
+              2026.3.1~
               <br />
-              たったひとりの、静かな小屋。
-              <br />
-              SNSアカウントはありません。
+              No social media.
             </p>
           </div>
         </section>
