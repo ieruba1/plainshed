@@ -1,4 +1,3 @@
-import { FaXTwitter } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
 
 export default function Home() {
@@ -42,7 +41,16 @@ export default function Home() {
 
           {/* Bio */}
           <div className="text-gray-800 leading-relaxed">
-            <p className="text-base font-medium mb-1">Kengo Imai</p>
+           <div className="flex items-center gap-2 mb-1">
+             <p className="text-base font-medium">Kengo Imai</p>
+              <a
+               href="mailto:ki@plainshed.com"
+               aria-label="メールで連絡する"
+               className="text-neutral-400 hover:text-black transition-colors"
+              >
+               <MdOutlineMailOutline size={16} />
+             </a>
+          </div>
             <p className="text-sm text-gray-600">
               1989年生まれ。
               <br />
@@ -56,24 +64,6 @@ export default function Home() {
        
         {/* Footer */}
         <footer className="mt-14 text-sm text-neutral-600">
-          <div className="flex flex-wrap gap-4 mb-3">
-            <a
-              href="https://x.com/plainshed"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X"
-              className="hover:text-black transition-colors"
-            >
-              <FaXTwitter size={16} />
-            </a>
-            <a
-              href="mailto:info@plainshed.com"
-              aria-label="メールで連絡する"
-              className="hover:text-black transition-colors"
-            >
-              <MdOutlineMailOutline size={16} />
-            </a>
-          </div>
           <div>© 2026 Kengo Imai</div>
         </footer>
       </div>
