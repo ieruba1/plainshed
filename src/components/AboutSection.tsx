@@ -1,7 +1,7 @@
 import { SectionLabel } from "./SectionLabel";
 
 const FACTS = [
-  { label: "Background", value: "行政職 → 民間企業" },
+  { label: "Background", value: "行政 → 民間" },
   { label: "ETHOS", value: "Minimalism" },
   { label: "Now Studying", value: "CS, TypeScript, Python" },
 ];
