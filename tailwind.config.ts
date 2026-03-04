@@ -15,12 +15,6 @@ const config: Config = {
         "ink-faint": "#c8bfb4",
         rule: "#d4cdc5",
         accent: "#2a4a2e",
-        "accent-warm": "#7a3f28",
-      },
-      fontFamily: {
-        fell: ["IM Fell English", "serif"],
-        mincho: ["Shippori Mincho", "serif"],
-        mono: ["DM Mono", "monospace"],
       },
     },
   },

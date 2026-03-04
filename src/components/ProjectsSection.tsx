@@ -28,11 +28,9 @@ export function ProjectsSection() {
       <SectionLabel>Projects</SectionLabel>
       {PROJECTS.map((p) => (
         <Link key={p.name} href={p.href} className="project-item reveal">
-          <div>
-            <div className="project-name">{p.name}</div>
-            <div className="project-desc">{p.desc}</div>
-            <div className="project-stack">{p.stack}</div>
-          </div>
+          <div className="project-name">{p.name}</div>
+          <div className="project-desc">{p.desc}</div>
+          <div className="project-stack">{p.stack}</div>
         </Link>
       ))}
     </section>
