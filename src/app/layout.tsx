@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PlainShed",
+  title: "PlainShed — Tech as Play",
   description: "A quiet solo development studio.",
   openGraph: {
-    title: "PlainShed",
-    description: "A quiet solo development studio.",
     url: "https://plainshed.com",
     siteName: "PlainShed",
     locale: "ja_JP",
@@ -14,8 +12,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "PlainShed — Tech as Play",
-    description: "A quiet solo development studio.",
     creator: "@plainshed",
   },
 };
@@ -27,9 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

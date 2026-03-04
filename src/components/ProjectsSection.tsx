@@ -5,13 +5,11 @@ const PROJECTS = [
   {
     name: "Lifemint College",
     desc: "「習慣で単位を取得する」大学をテーマにした習慣管理サービス。",
-    stack: "Next.js · Prisma · Supabase · Clerk",
     href: "https://lifemintcollege.com",
   },
   {
     name: "Notch",
     desc: "まったく新しいライフダッシュボード。",
-    stack: "Python · Streamlit",
     href: "#",
   },
 ];
@@ -24,7 +22,6 @@ export function ProjectsSection() {
         <Link key={p.name} href={p.href} className="project-item">
           <div className="project-name">{p.name}</div>
           <div className="project-desc">{p.desc}</div>
-          <div className="project-stack">{p.stack}</div>
         </Link>
       ))}
     </section>
