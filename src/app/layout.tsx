@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Cursor } from "@/components/Cursor";
 import { ScrollLine } from "@/components/ScrollLine";
-import { EasterEgg } from "@/components/EasterEgg";
+
 
 export const metadata: Metadata = {
   title: "PlainShed — Tech as Play",
@@ -35,7 +35,7 @@ export default function RootLayout({
         {/* Client-only UI chrome */}
         <Cursor />
         <ScrollLine />
-        <EasterEgg />
+
         {children}
       </body>
     </html>

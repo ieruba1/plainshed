@@ -4,7 +4,7 @@ import { SectionLabel } from "./SectionLabel";
 const PROJECTS = [
   {
     name: "Lifemint College",
-    desc: "「習慣で単位を取得できる」大学をテーマにした習慣管理サービス。",
+    desc: "「習慣で単位を取得する」大学をテーマにした習慣管理サービス。",
     stack: "Next.js · Prisma · Supabase · Clerk",
     href: "https://lifemintcollege.com",
   },
