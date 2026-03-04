@@ -1,26 +1,326 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=IM+Fell+English:ital@0;1&family=Shippori+Mincho:wght@400;600&family=DM+Mono:ital,wght@0,300;1,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f7f4ef;
+  --ink: #1a1612;
+  --ink-light: #6b6259;
+  --ink-faint: #c8bfb4;
+  --accent: #2a4a2e;
+  --rule: #d4cdc5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-cormorant), serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Shippori Mincho', serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ── Noise overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.6;
+}
+
+/* ── Cursor ── */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--ink);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
+  mix-blend-mode: multiply;
+  will-change: left, top;
+}
+.cursor.hover { width: 36px; height: 36px; background: var(--accent); opacity: 0.3; }
+.cursor.click { transform: translate(-50%, -50%) scale(0.5); }
+
+/* ── Ink splash ── */
+.ink-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  pointer-events: none;
+  z-index: 8500;
+  animation: inkSplash 0.6s ease forwards;
+}
+@keyframes inkSplash {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.8; }
+  60%  { transform: translate(-50%, -50%) scale(3); opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+}
+
+/* ── Scroll line ── */
+.scroll-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 8000;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim-fade-up { opacity: 0; animation: fadeUp 0.9s ease forwards; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Layout ── */
+.page-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ── Section label ── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1.2rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── Site name ── */
+.site-name {
+  display: inline-block;
+  letter-spacing: 0.04em;
+  transition: letter-spacing 0.4s ease;
+}
+.site-name:hover { letter-spacing: 0.18em; }
+
+/* ── Project item ── */
+.project-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: padding-left 0.3s ease;
+  cursor: none;
+}
+.project-item:first-of-type { border-top: none; }
+.project-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+.project-item:hover::before { transform: scaleY(1); }
+.project-item:hover { padding-left: 0.8rem; }
+
+.project-name {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+  max-width: 480px;
+}
+.project-stack {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  margin-top: 0.75rem;
+}
+
+/* ── About ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.about-bio {
+  font-size: 0.92rem;
+  color: var(--ink-light);
+  line-height: 1.9;
+}
+.about-bio h2 {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 0.8rem;
+}
+.about-bio p + p { margin-top: 1rem; }
+
+.facts-panel { padding-left: 3.5rem; border-left: 1px solid var(--rule); }
+.fact-item {
+  margin-bottom: 0.9rem;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fact-item:last-child { margin-bottom: 0; }
+.fact-item.visible { opacity: 1; transform: translateX(0); }
+.fact-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.25rem;
+}
+.fact-value {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+/* ── Footer ── */
+.site-footer {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--ink-faint);
+}
+.footer-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-link:hover { color: var(--ink); }
+
+/* ── Header ── */
+.site-header {
+  padding: 5rem 0 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.site-title {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(1.7rem, 4.2vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.site-tagline {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-light);
+}
+
+/* ── Easter egg ── */
+.easter-egg {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0.08;
+  transition: opacity 0.4s, transform 0.4s;
+  cursor: none;
+  user-select: none;
+  z-index: 100;
+}
+.easter-egg:hover { opacity: 1; transform: rotate(15deg) scale(1.2); }
+.egg-message {
+  position: fixed;
+  bottom: 5rem;
+  right: 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  padding: 0.8rem 1.2rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s, transform 0.4s;
+  pointer-events: none;
+  max-width: 220px;
+  line-height: 1.6;
+  z-index: 100;
+}
+.egg-message.show { opacity: 1; transform: translateY(0); }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .page-container { padding: 0 1.5rem; }
+  .section { padding: 3.5rem 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .facts-panel { padding-left: 2.5rem; }
+  .project-item { grid-template-columns: 1fr; }
 }

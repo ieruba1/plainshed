@@ -2,24 +2,25 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      colors: {
+        paper: "#f7f4ef",
+        ink: "#1a1612",
+        "ink-light": "#6b6259",
+        "ink-faint": "#c8bfb4",
+        rule: "#d4cdc5",
+        accent: "#2a4a2e",
+        "accent-warm": "#7a3f28",
+      },
       fontFamily: {
-        cormorant: ["var(--font-cormorant)", "serif"],
-        "cormorant-sc": ["var(--font-cormorant-sc)", "serif"],
-      },
-      animation: {
-        "fade-up": "fadeUp 1s ease forwards",
-      },
-      keyframes: {
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
+        fell: ["IM Fell English", "serif"],
+        mincho: ["Shippori Mincho", "serif"],
+        mono: ["DM Mono", "monospace"],
       },
     },
   },

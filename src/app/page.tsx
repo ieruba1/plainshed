@@ -1,76 +1,20 @@
-import { MdOutlineMailOutline } from "react-icons/md";
-import Image from "next/image"
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { SiteHeader } from "@/components/SiteHeader";
+import { ProjectsSection } from "@/components/ProjectsSection";
+import { AboutSection } from "@/components/AboutSection";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Home() {
+  useScrollReveal();
+
   return (
-    <main className="min-h-screen bg-white px-12 py-10">
-      {/* Header */}
-      <header>
-        <h1 className="text-4xl font-normal tracking-tight text-gray-900">
-          PlainShed
-        </h1>
-      </header>
-
-      <div className="max-w-2xl mx-auto">
-         {/* Products */}
-        <section className="mt-24">
-          <h2 className="text-sm font-medium tracking-widest text-neutral-400 uppercase mb-6">
-            Products
-          </h2>
-          <div className="space-y-4">
-            <a
-              href="https://lifemintcollege.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block border border-neutral-200 rounded-lg px-6 py-5 hover:border-neutral-400 transition-colors"
-            >
-              <div className="font-semibold text-base text-gray-800">Lifemint College</div>
-              <div className="mt-1 text-sm text-neutral-600">
-                「習慣で単位を取得する」大学をイメージした習慣管理サービス。
-              </div>
-            </a>
-          </div>
-        </section>
-
-         {/* Profile Section */}
-        <section className="mt-14 flex items-center gap-6">
-          {/* Avatar */}
-          <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden">
-            <Image
-              src="/avatar.jpg"
-              alt="PlainShed avatar"
-              width={96}
-              height={96}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Bio */}
-          <div className="text-gray-800 leading-relaxed">
-           <div className="flex items-center gap-2 mb-1">
-             <p className="text-base font-medium">PlainShed</p>
-              <a
-               href="mailto:ki@plainshed.com"
-               aria-label="メールで連絡する"
-               className="text-neutral-400 hover:text-black transition-colors"
-              >
-               <MdOutlineMailOutline size={16} />
-             </a>
-          </div>
-            <p className="text-sm text-gray-600">
-              Since 2026.03.01
-              <br />
-              No social media accounts.
-            </p>
-          </div>
-        </section>
-
-       
-        {/* Footer */}
-        <footer className="mt-14 text-sm text-neutral-600">
-          <div>© 2026 Kengo Imai</div>
-        </footer>
-      </div>
+    <main className="page-container">
+      <SiteHeader />
+      <ProjectsSection />
+      <AboutSection />
+      <SiteFooter />
     </main>
   );
 }

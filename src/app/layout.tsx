@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Cormorant_SC } from "next/font/google";
 import "./globals.css";
-
-const cormorantGaramond = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-});
-
-const cormorantSC = Cormorant_SC({
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  variable: "--font-cormorant-sc",
-});
+import { Cursor } from "@/components/Cursor";
+import { ScrollLine } from "@/components/ScrollLine";
+import { EasterEgg } from "@/components/EasterEgg";
 
 export const metadata: Metadata = {
-  title: "PlainShed",
-  description: "Tech as Play.",
+  title: "PlainShed — Tech as Play",
+  description:
+    "A quiet solo development studio.",
+  openGraph: {
+    title: "PlainShed — Tech as Play",
+    description: "A quiet solo development studio.",
+    url: "https://plainshed.com",
+    siteName: "PlainShed",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "PlainShed — Tech as Play",
+    description: "A quiet solo development studio.",
+    creator: "@plainshed",
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={`${cormorantGaramond.variable} ${cormorantSC.variable}`}>
+      <body>
+        {/* Client-only UI chrome */}
+        <Cursor />
+        <ScrollLine />
+        <EasterEgg />
         {children}
       </body>
     </html>
