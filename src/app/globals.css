@@ -19,7 +19,6 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: 'Shippori Mincho', serif;
-  cursor: none;
   overflow-x: hidden;
 }
 
@@ -32,40 +31,6 @@ body::before {
   pointer-events: none;
   z-index: 9000;
   opacity: 0.6;
-}
-
-/* ── Cursor ── */
-.cursor {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: var(--ink);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
-  mix-blend-mode: multiply;
-  will-change: left, top;
-}
-.cursor.hover { width: 36px; height: 36px; background: var(--accent); opacity: 0.3; }
-.cursor.click { transform: translate(-50%, -50%) scale(0.5); }
-
-/* ── Ink splash ── */
-.ink-dot {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--ink-faint);
-  pointer-events: none;
-  z-index: 8500;
-  animation: inkSplash 0.6s ease forwards;
-}
-@keyframes inkSplash {
-  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.8; }
-  60%  { transform: translate(-50%, -50%) scale(3); opacity: 0.4; }
-  100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
 }
 
 /* ── Scroll line ── */
@@ -146,7 +111,6 @@ body::before {
   color: inherit;
   position: relative;
   transition: padding-left 0.3s ease;
-  cursor: none;
 }
 .project-item:first-of-type { border-top: none; }
 .project-item::before {
