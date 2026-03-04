@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+JP:wght@400&family=DM+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+JP:wght@400&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -44,7 +44,6 @@ body::before {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-family: 'DM Mono', monospace;
   font-size: 0.62rem;
   font-weight: 300;
   letter-spacing: 0.3em;
@@ -96,17 +95,26 @@ body::before {
   line-height: 1.9;
 }
 .about-bio h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0 0 0.8rem;
 }
+.mail-icon {
+  color: var(--ink-faint);
+  transition: color 0.2s;
+}
+.mail-icon:hover {
+  color: var(--ink);
+}
 .facts-panel { padding-left: 3.5rem; border-left: 1px solid var(--rule); }
 .fact-item { margin-bottom: 0.9rem; }
 .fact-item:last-child { margin-bottom: 0; }
 .fact-label {
-  font-family: 'DM Mono', monospace;
   font-size: 0.58rem;
   font-weight: 300;
   letter-spacing: 0.2em;
@@ -123,7 +131,6 @@ body::before {
   padding: 3rem 0;
 }
 .footer-copy {
-  font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
   font-weight: 300;
   letter-spacing: 0.15em;
