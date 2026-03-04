@@ -4,7 +4,6 @@ const FACTS = [
   { label: "Location", value: "Japan" },
   { label: "Background", value: "公務員 → 民間企業" },
   { label: "Now Studying", value: "CS, TypeScript, Python" },
-  { label: "Philosophy", value: "Minimalism" },
 ];
 
 export function AboutSection() {
