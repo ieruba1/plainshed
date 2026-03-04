@@ -14,12 +14,6 @@ const PROJECTS = [
     stack: "Python · Streamlit",
     href: "#",
   },
-  {
-    name: "Urebia",
-    desc: "構想中の新規ブロダクト。",
-    stack: "Next.js · TypeScript · Tailwind",
-    href: "/",
-  },
 ];
 
 export function ProjectsSection() {
@@ -27,7 +21,7 @@ export function ProjectsSection() {
     <section id="projects" className="section">
       <SectionLabel>Projects</SectionLabel>
       {PROJECTS.map((p) => (
-        <Link key={p.name} href={p.href} className="project-item reveal">
+        <Link key={p.name} href={p.href} className="project-item">
           <div className="project-name">{p.name}</div>
           <div className="project-desc">{p.desc}</div>
           <div className="project-stack">{p.stack}</div>

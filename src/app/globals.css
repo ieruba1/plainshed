@@ -1,25 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@300;400&family=DM+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+JP:wght@400&family=DM+Mono:wght@300&display=swap');
 
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   --paper: #f7f4ef;
   --ink: #1a1612;
   --ink-light: #6b6259;
   --ink-faint: #c8bfb4;
-  --accent: #2a4a2e;
   --rule: #d4cdc5;
 }
-
-html { scroll-behavior: smooth; }
 
 body {
   background: var(--paper);
   color: var(--ink);
   font-family: 'Inter', 'Noto Sans JP', sans-serif;
-  overflow-x: hidden;
 }
 
 /* ── Noise overlay ── */
@@ -32,32 +26,6 @@ body::before {
   z-index: 9000;
   opacity: 0.6;
 }
-
-/* ── Scroll line ── */
-.scroll-line {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: var(--accent);
-  z-index: 8000;
-  transition: width 0.1s linear;
-  pointer-events: none;
-}
-
-/* ── Animations ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.anim-fade-up { opacity: 0; animation: fadeUp 0.9s ease forwards; }
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ── Layout ── */
 .page-container {
@@ -98,24 +66,8 @@ body::before {
   border-top: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
-  position: relative;
-  transition: padding-left 0.3s ease;
 }
 .project-item:first-of-type { border-top: none; }
-.project-item::before {
-  content: '';
-  position: absolute;
-  left: -2.5rem;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--accent);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.4s ease;
-}
-.project-item:hover::before { transform: scaleY(1); }
-.project-item:hover { padding-left: 0.8rem; }
 
 .project-name {
   font-size: 1.35rem;
@@ -159,14 +111,8 @@ body::before {
   margin: 0 0 0.8rem;
 }
 .facts-panel { padding-left: 3.5rem; border-left: 1px solid var(--rule); }
-.fact-item {
-  margin-bottom: 0.9rem;
-  opacity: 0;
-  transform: translateX(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
+.fact-item { margin-bottom: 0.9rem; }
 .fact-item:last-child { margin-bottom: 0; }
-.fact-item.visible { opacity: 1; transform: translateX(0); }
 .fact-label {
   font-family: 'DM Mono', monospace;
   font-size: 0.58rem;
@@ -178,8 +124,6 @@ body::before {
 }
 .fact-value {
   font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--ink);
 }
 
 /* ── Footer ── */

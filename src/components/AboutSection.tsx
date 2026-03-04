@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import { SectionLabel } from "./SectionLabel";
 
 const FACTS = [
@@ -11,31 +8,11 @@ const FACTS = [
 ];
 
 export function AboutSection() {
-  const factsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const items = factsRef.current?.querySelectorAll<HTMLElement>(".fact-item");
-    if (!items) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            items.forEach((item, i) => setTimeout(() => item.classList.add("visible"), i * 100));
-            obs.disconnect();
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-    if (items[0]) obs.observe(items[0]);
-    return () => obs.disconnect();
-  }, []);
-
   return (
     <section id="about" className="section">
       <SectionLabel>About</SectionLabel>
       <div className="about-grid">
-        <div className="about-bio reveal">
+        <div className="about-bio">
           <h2>Kengo Imai</h2>
           <p>
             1989年生まれ。<br />
@@ -44,7 +21,7 @@ export function AboutSection() {
             2026年3月1日、個人開発プロジェクトを始動。
           </p>
         </div>
-        <div ref={factsRef} className="facts-panel">
+        <div className="facts-panel">
           {FACTS.map(({ label, value }) => (
             <div key={label} className="fact-item">
               <div className="fact-label">{label}</div>
