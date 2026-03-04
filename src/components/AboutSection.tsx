@@ -15,8 +15,7 @@ export function AboutSection() {
         <div className="about-bio">
           <h2>Kengo Imai</h2>
           <p>
-            1989年生まれ。<br />
-            大阪大学卒業後、公務員を経て民間企業へ。<br />
+            1989年生まれ、大阪大学卒業。<br />
             独学でCS/プログラミングを学び、<br />
             2026年3月1日、PlainShedを始動。
           </p>
