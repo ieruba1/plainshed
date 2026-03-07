@@ -2,8 +2,8 @@ import { SectionLabel } from "./SectionLabel";
 
 const FACTS = [
   { label: "Background", value: "行政 → 民間" },
-  { label: "ETHOS", value: "Minimalism" },
-  { label: "Now Studying", value: "CS, TypeScript, Python" },
+  { label: "Philosophy", value: "Minimalism" },
+  { label: "Skills", value: "TypeScript, Python" },
 ];
 
 export function AboutSection() {
@@ -23,7 +23,7 @@ export function AboutSection() {
           </h2>
           <p>
             1989年生まれ、大阪大学卒業。<br />
-            独学でCS/プログラミングを学び、<br />
+            独学でWeb開発を学び、<br />
             2026年3月1日、PlainShedを始動。
           </p>
         </div>
