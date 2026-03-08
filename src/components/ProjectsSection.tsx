@@ -4,8 +4,8 @@ import { SectionLabel } from "./SectionLabel";
 const PROJECTS = [
   {
     name: "Notch",
-    desc: "静かに回り続ける、自分だけのライフダッシュボード。",
-    href: "#",
+    desc: "朝開いて、1日を整える。自分だけのライフダッシュボード。",
+    href: "https://notch.plainshed.com",
   },
   {
     name: "Lifemint College",
